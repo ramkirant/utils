@@ -4,6 +4,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 public class DateUtils {
@@ -50,5 +51,9 @@ public class DateUtils {
 	
 	public static LocalDate utilDateToLocalDate(Date date) {
 		return Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+	}
+	
+	public static Long daysBetweenDates(LocalDate fromDate, LocalDate toDate) {
+		return ChronoUnit.DAYS.between(fromDate, toDate);
 	}
 }

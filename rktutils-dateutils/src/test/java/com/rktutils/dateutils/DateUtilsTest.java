@@ -87,5 +87,13 @@ class DateUtilsTest {
 		LocalDate localDate = DateUtils.utilDateToLocalDate(utilDate);
 		assertEquals("2021-03-11", localDate.toString());
 	}
+	
+	@Test
+	void daysBetweenDatesTest() {
+		LocalDate fromDate = DateUtils.setDate(2021, 3, 11);
+		LocalDate toDate = DateUtils.setDate(2021, 3, 12);
+		
+		assertEquals(1L, DateUtils.daysBetweenDates(fromDate, toDate));
+	}
 
 }
